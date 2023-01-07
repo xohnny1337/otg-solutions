@@ -13,14 +13,20 @@ import Button from "@components/Button.astro";
     <form class="form-grid">
       <TextArea
         id="msg"
-        label="Melding"
+        label="Melding *"
         placeholder="Hei, jeg trenger en bla bla..."
         type="text"
         required
       />
       <div class="inputs-wrapper">
-        <TextInput id="email" label="Din e-postadresse" type="email" required />
-        <TextInput id="phone" label="Ditt mobilnummer" type="tel" required />
+        <TextInput
+          id="email"
+          label="Din e-postadresse *"
+          type="email"
+          required
+        />
+        <TextInput id="phone" label="Ditt mobilnummer *" type="tel" required />
+        <TextInput id="name" label="Navn" />
       </div>
       <submit-button-wrapper>
         <Button>Send</Button>
@@ -36,18 +42,48 @@ import Button from "@components/Button.astro";
       super();
 
       const submitButton = this.querySelector("button");
+
       const email = document?.getElementById("email") as HTMLInputElement;
       const phone = document?.getElementById("phone") as HTMLInputElement;
       const msg = document?.getElementById("msg") as HTMLTextAreaElement;
+      const name = document?.getElementById("name") as HTMLTextAreaElement;
 
-      submitButton?.addEventListener("click", () => {
-        const e = email.value;
-        const p = phone.value;
-        const m = msg.value;
-        console.log({ e, p, m });
+      submitButton?.addEventListener("click", async (event) => {
+        event.preventDefault();
+        const e = email?.value;
+        const p = phone?.value;
+        const m = msg?.value;
+        const n = name?.value;
 
-        if (!e || !p || !m) return;
-        console.log({ email, phone, msg });
+        if (!m) return msg.focus();
+        if (!e) return email.focus();
+        if (!p) return phone.focus();
+
+        try {
+          await fetch("/api/send-email", {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+              "Content-Type": "application/json",
+              // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *client
+            body: JSON.stringify({
+              email: e,
+              phone: p,
+              msg: m,
+              name: n,
+            }),
+          });
+        } catch (err) {
+          if (err instanceof Error) {
+            throw new Error(err.message);
+          }
+          throw err;
+        }
       });
     }
   }
