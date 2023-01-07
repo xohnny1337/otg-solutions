@@ -2,11 +2,16 @@ import type { APIRoute } from "astro";
 
 export const post: APIRoute = async ({ params, request, redirect }) => {
   if (
-    request.headers.get("Content-Type") === "application/json" &&
+    request.headers.get("Content-Type") ===
+      "application/x-www-form-urlencoded" &&
     request.method === "POST"
   ) {
-    const body = await request.json();
-    const { email, phone, msg, name } = body;
+    const formdata = await request.formData();
+
+    const name = formdata.get("name");
+    const email = formdata.get("email");
+    const message = formdata.get("msg");
+    const phone = formdata.get("phone");
 
     try {
       await fetch(`${import.meta.env.URL}/.netlify/functions/emails/contact`, {
@@ -21,7 +26,7 @@ export const post: APIRoute = async ({ params, request, redirect }) => {
           parameters: {
             e: email,
             p: phone,
-            m: msg,
+            m: message,
           },
         }),
       });
