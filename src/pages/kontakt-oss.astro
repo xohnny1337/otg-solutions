@@ -1,0 +1,79 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import TextInput from "@components/TextInput.astro";
+import TextArea from "@components/TextArea.astro";
+import Button from "@components/Button.astro";
+---
+
+<Layout title="OTG Solutions AS | Om oss">
+  <Header />
+  <main>
+    <form class="form-grid">
+      <TextArea
+        id="msg"
+        label="Melding"
+        placeholder="Hei, jeg trenger en bla bla..."
+        type="text"
+        required
+      />
+      <div class="inputs-wrapper">
+        <TextInput id="email" label="Din e-postadresse" type="email" required />
+        <TextInput id="phone" label="Ditt mobilnummer" type="tel" required />
+      </div>
+      <submit-button-wrapper>
+        <Button>Send</Button>
+      </submit-button-wrapper>
+    </form>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  class SubmitButton extends HTMLElement {
+    constructor() {
+      super();
+
+      const submitButton = this.querySelector("button");
+      const email = document?.getElementById("email") as HTMLInputElement;
+      const phone = document?.getElementById("phone") as HTMLInputElement;
+      const msg = document?.getElementById("msg") as HTMLTextAreaElement;
+
+      submitButton?.addEventListener("click", () => {
+        const e = email.value;
+        const p = phone.value;
+        const m = msg.value;
+        console.log({ e, p, m });
+
+        if (!e || !p || !m) return;
+        console.log({ email, phone, msg });
+      });
+    }
+  }
+
+  customElements.define("submit-button-wrapper", SubmitButton);
+</script>
+
+<style>
+  .inputs-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media screen and (min-width: 636px) {
+    .form-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    submit-button-wrapper {
+      grid-column: span 2;
+      text-align: right;
+    }
+  }
+</style>

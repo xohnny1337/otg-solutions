@@ -1,0 +1,25 @@
+---
+export interface Props {
+  children: any;
+}
+---
+
+<section>
+  <p class="information"><slot /></p>
+</section>
+
+<style>
+  section {
+    margin-bottom: 2rem;
+  }
+  p {
+    color: var(--text-primary);
+  }
+  .information {
+    line-height: 1.6rem;
+    border: var(--border-primary);
+    background-color: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+  }
+</style>
