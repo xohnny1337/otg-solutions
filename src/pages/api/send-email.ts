@@ -22,7 +22,7 @@ export const post: APIRoute = async ({ params, request, redirect }) => {
         body: JSON.stringify({
           from: "noreply@otg-solutions.no",
           to: "post@otg-solutions.no",
-          subject: name,
+          subject: "OTG Solutions contact form submission",
           parameters: {
             e: email,
             p: phone,
