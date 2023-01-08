@@ -12,17 +12,14 @@
     background-color: white;
     padding: 0.5rem 2.5rem;
     cursor: pointer;
-    background-image: var(--accent-gradient);
-    background-size: 400%;
-    background-position: 100%;
-    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-      color 0.6s ease-in-out;
+    transition: background-color 0.6s ease-in-out, color 0.6s ease-in-out;
     font-weight: 600;
     font-size: 1rem;
+    color: var(--accent-gradient);
   }
 
   button:is(:hover, :focus-within) {
-    background-position: 25%;
+    background-color: rgba(var(--accent), 69%);
     color: white;
   }
 </style>

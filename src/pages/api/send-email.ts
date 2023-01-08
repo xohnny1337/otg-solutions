@@ -27,6 +27,7 @@ export const post: APIRoute = async ({ params, request, redirect }) => {
             e: email,
             p: phone,
             m: message,
+            n: name,
           },
         }),
       });
