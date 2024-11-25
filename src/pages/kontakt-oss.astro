@@ -24,6 +24,15 @@ import Button from "@components/Button.astro";
         />
         <TextInput id="phone" label="Ditt mobilnummer *" type="tel" required />
         <TextInput id="name" label="Navn" />
+        <div class="honeypot-wrapper">
+          <input
+            type="text"
+            name="honeypot"
+            id="honeypot"
+            autocomplete="off"
+            tabindex="-1"
+          />
+        </div>
       </div>
       <div class="submit-button-wrapper">
         <Button>Send</Button>
@@ -53,5 +62,15 @@ import Button from "@components/Button.astro";
       grid-column: span 2;
       text-align: right;
     }
+  }
+
+  .honeypot-wrapper {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    z-index: -1;
   }
 </style>
