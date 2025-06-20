@@ -1,25 +1,30 @@
 ---
+interface Props {
+  href?: string;
+  type?: "button" | "submit";
+  variant?: "primary" | "secondary";
+  class?: string;
+}
+
+const { 
+  href, 
+  type = "button",
+  variant = "primary",
+  class: className 
+} = Astro.props;
+
+const baseStyles = "inline-flex items-center justify-center px-5 py-3 border text-base font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2";
+const variantStyles = {
+  primary: "border-transparent text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-500",
+  secondary: "border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-blue-500"
+};
+
+const Element = href ? "a" : "button";
 ---
 
-<button class="link-card" type="submit">
+<Element
+  {...href ? { href } : { type }}
+  class:list={[baseStyles, variantStyles[variant], className]}
+>
   <slot />
-</button>
-
-<style>
-  button {
-    border: var(--border-primary);
-    border-radius: var(--border-radius);
-    background-color: white;
-    padding: 0.5rem 2.5rem;
-    cursor: pointer;
-    transition: background-color 0.6s ease-in-out, color 0.6s ease-in-out;
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--accent-gradient);
-  }
-
-  button:is(:hover, :focus-within) {
-    background-color: rgba(var(--accent), 69%);
-    color: white;
-  }
-</style>
+</Element> 

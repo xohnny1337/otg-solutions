@@ -1,48 +1,66 @@
 ---
-import Header from "@components/Header.astro";
-import Layout from "@layouts/Layout.astro";
-import Footer from "@components/Footer.astro";
-import Card from "@components/Card.astro";
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import Container from '../components/Container.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
 ---
 
-<Layout
-  title="OTG Solutions AS | Utvikling av IT systemer | Konsulenttjenester"
-  description="Utvikling av IT systemer. Konsulenttjenester"
->
-  <Header />
-  <main>
-    <ul role="list" class="link-card-grid">
-      <Card
-        href="/om-oss"
-        title="Om oss 🏢"
-        body="Spesialister på teknologitjenester og digital transformasjon."
-      />
-      <!-- <Card
-        href="/prosjekter"
-        title="Prosjekter 🏗️"
-        body="Supercharge your project with new frameworks and libraries."
-      /> -->
-      <!-- <Card
-        href="/tjenester"
-        title="Tjenester 💻"
-        body="Tilpassede programvareløsninger for å møte dine unike forretningsbehov."
-      /> -->
-      <Card
-        href="/kontakt-oss"
-        title="Kontakt oss 📩"
-        body="Hvordan kan vi hjelpe dere?"
-      />
-    </ul>
-  </main>
-  <Footer />
-</Layout>
+<Layout>
+  <div class="bg-white">
+    <Hero
+      title="Strategisk IT-rådgivning"
+      description="Vi hjelper norske bedrifter med å optimalisere sine IT-løsninger for økt effektivitet og vekst."
+    >
+      <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+        <Button href="/contact"> Book en gratis konsultasjon </Button>
+      </div>
+    </Hero>
 
-<style>
-  .link-card-grid {
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
-    padding: 0;
-  }
-</style>
+    <Section
+      title="Om OTG Solutions AS"
+      description="Vi er et konsulentselskap som spesialiserer seg på å hjelpe bedrifter med å utnytte teknologi for å oppnå sine forretningsmål."
+    />
+
+    <Section title="Våre klienter stoler på oss" background="gray">
+      <Container>
+        <div class="mt-16">
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <Card>
+              <p class="text-gray-600">
+                "OTG Solutions hjalp oss med å modernisere våre IT-systemer, noe som resulterte i
+                betydelig økt effektivitet."
+              </p>
+              <div class="mt-4">
+                <p class="font-medium text-gray-900">Navn Navnesen</p>
+                <p class="text-gray-500">CEO, Bedrift AS</p>
+              </div>
+            </Card>
+
+            <Card>
+              <p class="text-gray-600">
+                "Deres strategiske rådgivning var uvurderlig for vår digitale transformasjon."
+              </p>
+              <div class="mt-4">
+                <p class="font-medium text-gray-900">Navn Navnesen</p>
+                <p class="text-gray-500">CTO, Tech Bedrift AS</p>
+              </div>
+            </Card>
+
+            <Card>
+              <p class="text-gray-600">
+                "Profesjonell og kunnskapsrik partner som leverer resultater."
+              </p>
+              <div class="mt-4">
+                <p class="font-medium text-gray-900">Navn Navnesen</p>
+                <p class="text-gray-500">COO, Innovasjon AS</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  </div>
+</Layout>

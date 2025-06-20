@@ -1,0 +1,42 @@
+---
+interface Props {
+  label: string;
+  name: string;
+  type?: "text" | "email" | "tel" | "textarea";
+  required?: boolean;
+  class?: string;
+}
+
+const { 
+  label, 
+  name, 
+  type = "text", 
+  required = false,
+  class: className 
+} = Astro.props;
+---
+
+<div class:list={["space-y-1", className]}>
+  <label for={name} class="block text-sm font-medium text-gray-700">
+    {label}
+  </label>
+  <div class="mt-1">
+    {type === "textarea" ? (
+      <textarea
+        id={name}
+        name={name}
+        rows={4}
+        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+        required={required}
+      />
+    ) : (
+      <input
+        type={type}
+        id={name}
+        name={name}
+        class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+        required={required}
+      />
+    )}
+  </div>
+</div> 
