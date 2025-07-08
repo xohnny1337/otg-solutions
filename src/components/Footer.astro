@@ -1,28 +1,29 @@
-<footer class="bg-gray-50">
-  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+---
+import Link from '@/components/Link.astro';
+import Container from '@/components/Container.astro';
+---
+
+<footer class="bg-slate-50">
+  <Container>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
-        <h3 class="text-lg font-semibold mb-4">OTG Solutions AS</h3>
-        <p class="text-gray-600">
-          Vi hjelper bedrifter med å oppnå sine mål gjennom strategisk rådgivning og tekniske
-          løsninger.
-        </p>
+        <p class="text-lg font-semibold mb-4">OTG Solutions AS</p>
+        <p>Org. nr: 924974168</p>
       </div>
       <div>
-        <h3 class="text-lg font-semibold mb-4">Kontakt</h3>
-        <p class="text-gray-600">Email: kontakt@otgsolutions.no</p>
-        <p class="text-gray-600">Telefon: +47 XXX XX XXX</p>
+        <p class="text-lg font-semibold mb-4">Kontakt</p>
+        <a href="mailto:post@otg-solutions.no">post@otg-solutions.no</a>
       </div>
       <div>
-        <h3 class="text-lg font-semibold mb-4">Følg Oss</h3>
-        <a href="#" class="text-gray-600 hover:text-gray-900">LinkedIn</a>
+        <p class="text-lg font-semibold mb-4">Følg Oss</p>
+        <Link
+          href="https://www.linkedin.com/company/otg-solutions-as/"
+          ariaLabel="Lenke til OTG Solutions AS på LinkedIn">LinkedIn</Link
+        >
       </div>
     </div>
-    <div class="mt-8 border-t border-gray-200 pt-8 text-center">
-      <p class="text-gray-600">
-        &copy; {new Date().getFullYear()} OTG Solutions AS. Alle rettigheter reservert.
-      </p>
+    <div class="mt-8 py-8 text-center">
+      <p class="text-gray-600">OTG Solutions AS. Alle rettigheter reservert.</p>
     </div>
-  </div>
+  </Container>
 </footer>
-
