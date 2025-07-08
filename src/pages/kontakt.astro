@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Container from '@/components/Container.astro';
-import { HoneypotEmail } from '@/components/honeypot-email';
+import { HoneypotEmail } from '@/components/react/honeypot-email';
 ---
 
 <Layout description="Kontakt OTG Solutions - La oss snakke om ditt neste prosjekt">
@@ -11,9 +11,7 @@ import { HoneypotEmail } from '@/components/honeypot-email';
         <div class="text-center">
           <h2 class="text-2xl font-semibold mb-4">Ta kontakt</h2>
           <div class="space-y-2">
-            <p>
-              <HoneypotEmail email="post@otg-solutions.no" className="text-primary" client:load />
-            </p>
+            <a href="mailto:post@otg-solutions.no" class="hover:underline">post@otg-solutions.no</a>
           </div>
         </div>
       </div>
