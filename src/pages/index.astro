@@ -1,10 +1,102 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Container from '@/components/Container.astro';
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import HeroSection from '@/components/hero-section.astro';
+import Link from '@/components/Link.astro';
 ---
 
 <Layout
-  description="OTG Solutions AS er en konsulentvirksomhet som leverer IT-løsninger og konsulenttjenester."
+  description="OTG Solutions AS leverer skreddersydde IT-løsninger og strategiske konsulenttjenester som sikrer vekst og effektivitet."
 >
-  <Container />
+  <HeroSection
+    title="Innovative IT-løsninger som driver din virksomhet fremover"
+    description="Vi utvikler og implementerer tilpassede teknologiløsninger som hjelper deg å oppnå vekst, effektivitet og konkurransefortrinn."
+  >
+    <div class="flex gap-4 justify-center">
+      <Link href="/kontakt" ariaLabel="Lenke til kontakt oss">
+        <Button variant="default" size="lg">Kom i gang</Button>
+      </Link>
+      <Link href="/om-oss" ariaLabel="Lenke til om oss">
+        <Button variant="outline" size="lg">Les mer</Button>
+      </Link>
+    </div>
+  </HeroSection>
+
+  <!-- Features Section -->
+  <Container>
+    <div class="py-20">
+      <h2 class="text-3xl font-bold text-center mb-12">Hva kan vi hjelpe deg med?</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <Card>
+          <CardHeader>
+            <CardTitle>Konsulenttjenester</CardTitle>
+            <CardDescription>Strategisk IT-rådgivning og implementering</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p class="text-gray-600">Vi gir ekspertveiledning og praktisk støtte for å maksimere verdien av din IT-infrastruktur.</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Systemutvikling</CardTitle>
+            <CardDescription>Tilpassede digitale løsninger</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p class="text-gray-600">Fra idé til ferdig produkt – vi utvikler moderne, robuste systemer som møter dine behov.</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Digital transformasjon</CardTitle>
+            <CardDescription>Modernisering og effektivisering</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p class="text-gray-600">Vi hjelper deg å digitalisere og automatisere prosesser for økt lønnsomhet og effektivitet.</p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </Container>
+
+  <!-- Why Choose Us Section -->
+  <div class="bg-gray-50 py-20">
+    <Container>
+      <h2 class="text-3xl font-bold text-center mb-12">Hvorfor velge OTG Solutions?</h2>
+      <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div>
+          <h3 class="text-xl font-semibold mb-3">Solid erfaring og ekspertise</h3>
+          <p class="text-gray-600">Vi kombinerer lang erfaring med inngående bransjekunnskap for å sikre suksess i hvert prosjekt.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-3">Skreddersydde løsninger</h3>
+          <p class="text-gray-600">Ingen virksomheter er like – derfor tilpasser vi alltid løsningene våre etter dine behov.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-3">Oppdatert teknologi</h3>
+          <p class="text-gray-600">Vi benytter ledende teknologier for å sikre at løsningene er moderne, stabile og fremtidssikre.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-3">Dedikert samarbeidspartner</h3>
+          <p class="text-gray-600">Din suksess er vår prioritet. Vi samarbeider tett med deg for å nå dine forretningsmål.</p>
+        </div>
+      </div>
+    </Container>
+  </div>
+
+  <!-- CTA Section -->
+  <Container>
+    <div class="py-20 text-center">
+      <h2 class="text-3xl font-bold mb-6">Er du klar til å løfte virksomheten din?</h2>
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        La oss ta en prat om hvordan våre innovative løsninger kan hjelpe deg å nå nye høyder.
+      </p>
+      <Link href="/kontakt" ariaLabel="Lenke til kontakt oss">
+        <Button variant="default" size="lg">Kontakt oss i dag</Button>
+      </Link>
+    </div>
+  </Container>
 </Layout>

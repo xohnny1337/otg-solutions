@@ -1,0 +1,24 @@
+---
+import Container from '@/components/Container.astro';
+import { cn } from '@/lib/utils';
+
+interface Props {
+  title: string;
+  description: string;
+  class?: string;
+}
+
+const { title, description, class: className } = Astro.props;
+---
+
+<section class={cn('bg-gradient-to-b from-gray-100 to-white py-20', className)}>
+  <Container>
+    <div class="text-center max-w-3xl mx-auto">
+      <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-6">{title}</h1>
+      <p class="text-xl text-gray-600 mb-8">
+        {description}
+      </p>
+      <slot />
+    </div>
+  </Container>
+</section>
