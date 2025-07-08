@@ -1,6 +1,7 @@
 ---
 import Link from '@/components/Link.astro';
 import Container from '@/components/Container.astro';
+import { HoneypotEmail } from '@/components/honeypot-email';
 ---
 
 <footer class="bg-slate-50">
@@ -12,7 +13,7 @@ import Container from '@/components/Container.astro';
       </div>
       <div>
         <p class="text-lg font-semibold mb-4">Kontakt</p>
-        <a href="mailto:post@otg-solutions.no">post@otg-solutions.no</a>
+        <HoneypotEmail email="post@otg-solutions.no" client:load />
       </div>
       <div>
         <p class="text-lg font-semibold mb-4">Følg Oss</p>

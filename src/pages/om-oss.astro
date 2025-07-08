@@ -1,8 +1,39 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Container from '@/components/Container.astro';
+import { Button } from '@/components/ui/button';
+import Link from '@/components/Link.astro';
 ---
 
-<Layout description="Om oss">
-  <Container />
+<Layout description="Om OTG Solutions - Din partner for digital suksess">
+  <Container>
+    <div class="py-24 max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-center">Om OTG Solutions</h1>
+
+      <div class="space-y-6 text-lg text-gray-600 mb-16">
+        <p>
+          OTG Solutions er drevet av en lidenskap for å skape skreddersydde digitale løsninger som gjør en forskjell for våre kunder. Vi
+          tror på at god teknologi handler om mer enn bare kode – det handler om å forstå menneskers behov og skape løsninger som virkelig
+          fungerer.
+        </p>
+
+        <p>
+          Vår styrke ligger i vår dedikerte tilnærming til hvert prosjekt. Vi tar oss tid til å forstå din virksomhet, dine utfordringer og
+          dine mål. Dette gjør at vi kan levere løsninger som ikke bare møter dagens behov, men som også er bygget for fremtiden.
+        </p>
+
+        <p>
+          Vi spesialiserer oss innen systemutvikling, digitale transformasjonsprosjekter og teknisk rådgivning. Med fokus på kvalitet og
+          brukeropplevelse, skaper vi robuste løsninger som gir verdi for din virksomhet.
+        </p>
+      </div>
+
+      <div class="text-center">
+        <h2 class="text-2xl font-semibold mb-6">Klar for å diskutere ditt neste prosjekt?</h2>
+        <Link href="/kontakt" ariaLabel="Lenke til kontakt oss">
+          <Button variant="default" size="lg">Ta kontakt i dag</Button>
+        </Link>
+      </div>
+    </div>
+  </Container>
 </Layout>
