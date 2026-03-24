@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://otg-solutions.no/sitemap-index.xml

@@ -4,21 +4,45 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 
 interface Props {
+  title?: string;
   description: string;
 }
 
-const { description } = Astro.props;
+const { title = 'OTG Solutions AS | IT-utvikling og konsulenttjenester i Fredrikstad og Oslo', description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="no">
+<html lang="nb">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>OTG Solutions AS | Utvikling av IT systemer | Konsulenttjenester</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:locale" content="nb_NO" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "OTG Solutions AS",
+      "url": "https://otg-solutions.no",
+      "email": "post@otg-solutions.no",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Fredrikstad",
+        "addressCountry": "NO"
+      },
+      "sameAs": ["https://www.linkedin.com/company/otg-solutions-as/"]
+    })} />
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />
