@@ -1,0 +1,1 @@
+- [Writing style](feedback_writing_style.md) — No dashes, concise natural Norwegian, avoid AI-sounding copy
