@@ -46,23 +46,79 @@ const values = [
   description="Mobilapper, webapper og interne verktøy for norske bedrifter. Vi sitter i Oslo og Fredrikstad, og du snakker direkte med utviklerne."
 >
   <Container>
-    <section class="pt-24 pb-20 md:pt-36 md:pb-28">
-      <p class="mb-6 font-mono text-sm text-muted-foreground">Oslo · Fredrikstad</p>
-      <h1 class="max-w-5xl text-5xl leading-tight font-semibold text-balance sm:text-6xl lg:text-7xl">
-        Vi bygger det bedriften din trenger<span class="text-accent">.</span>
-      </h1>
-      <p class="mt-6 max-w-prose text-lg text-muted-foreground text-pretty md:text-xl">
-        Mobilapper, webapper og interne verktøy for norske bedrifter. Du snakker direkte med utviklerne som bygger
-        løsningen.
-      </p>
-      <div class="mt-10 flex items-center gap-6">
-        <a href="/kontakt/" class={buttonVariants({ size: 'lg' })}>Ta kontakt</a>
-        <a
-          href="/om-oss/"
-          class="text-sm font-medium underline underline-offset-4 transition-colors hover:text-muted-foreground"
-        >
-          Om oss →
-        </a>
+    <section class="pt-24 pb-20 md:pt-36 md:pb-28 lg:grid lg:grid-cols-12 lg:items-start lg:gap-8">
+      <div class="lg:col-span-8">
+        <p class="mb-6 font-mono text-sm text-muted-foreground">Oslo · Fredrikstad</p>
+        <h1 class="max-w-5xl text-5xl leading-tight font-semibold text-balance sm:text-6xl lg:text-7xl">
+          Vi bygger det bedriften din trenger<span class="text-accent lg:text-inherit">.</span>
+        </h1>
+        <p class="mt-6 max-w-prose text-lg text-muted-foreground text-pretty md:text-xl">
+          Mobilapper, webapper og interne verktøy for norske bedrifter. Du snakker direkte med utviklerne som bygger
+          løsningen.
+        </p>
+        <div class="mt-10 flex items-center gap-6">
+          <a href="/kontakt/" class={buttonVariants({ size: 'lg' })}>Ta kontakt</a>
+          <a
+            href="/om-oss/"
+            class="text-sm font-medium underline underline-offset-4 transition-colors hover:text-muted-foreground"
+          >
+            Om oss →
+          </a>
+        </div>
+      </div>
+      <div class="hidden lg:col-span-4 lg:flex lg:justify-end">
+        <svg viewBox="0 0 220 360" class="w-full max-w-[240px]" fill="none" aria-hidden="true">
+          <!-- graticule: the two cities' true latitudes -->
+          <g class="text-border" stroke="currentColor" stroke-width="1">
+            <line x1="0" y1="49" x2="220" y2="49"></line>
+            <line x1="0" y1="300" x2="220" y2="300"></line>
+          </g>
+          <!-- east shore of the Oslofjord, simplified -->
+          <path
+            class="text-border"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            d="M56 44 L76 52 L73 90 L60 140 L69 191 L64 223 L64 259 L87 292 L109 310 L137 335"></path>
+          <!-- route Oslo - Ski - Moss - Råde - Fredrikstad -->
+          <path
+            class="text-foreground"
+            stroke="currentColor"
+            stroke-width="1.25"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            stroke-dasharray="4 3"
+            d="M82 49 L97 119 L72 214 L104 252 L113.5 293.7"></path>
+          <!-- scale bar: 20 km -->
+          <g class="text-muted-foreground" stroke="currentColor" stroke-width="1">
+            <line x1="4" y1="344" x2="69" y2="344"></line>
+            <line x1="4" y1="340.5" x2="4" y2="347.5"></line>
+            <line x1="69" y1="340.5" x2="69" y2="347.5"></line>
+          </g>
+          <!-- termini -->
+          <circle class="text-foreground" cx="82" cy="49" r="3" fill="currentColor"></circle>
+          <g class="text-accent">
+            <circle cx="115" cy="300" r="6.5" stroke="currentColor" stroke-width="1"></circle>
+            <circle cx="115" cy="300" r="3" fill="currentColor"></circle>
+          </g>
+          <!-- labels -->
+          <g class="font-mono">
+            <text class="text-foreground" fill="currentColor" font-size="10" x="92" y="61">Oslo</text>
+            <text class="text-foreground" fill="currentColor" font-size="10" x="127" y="296">Fredrikstad</text>
+            <text class="text-muted-foreground" fill="currentColor" font-size="8" x="214" y="44" text-anchor="end">59.91° N</text>
+            <text class="text-muted-foreground" fill="currentColor" font-size="8" x="214" y="313" text-anchor="end">59.22° N</text>
+            <text class="text-muted-foreground" fill="currentColor" font-size="8" x="4" y="336">20 km</text>
+            <text
+              class="text-muted-foreground"
+              fill="currentColor"
+              font-size="8"
+              text-anchor="middle"
+              transform="rotate(-80 34 160)"
+              x="34"
+              y="160">Oslofjorden</text>
+          </g>
+        </svg>
       </div>
     </section>
   </Container>

@@ -30,6 +30,46 @@ import { buttonVariants } from '@/components/ui/button';
         <p class="text-lg font-medium text-pretty">Vi leverer ikke før det holder mål.</p>
       </div>
 
+      <svg viewBox="0 0 640 56" class="mt-20 hidden w-full max-w-[640px] md:block" fill="none" aria-hidden="true">
+        <!-- the line continues beyond both stops -->
+        <g class="text-border" stroke="currentColor" stroke-width="1">
+          <line x1="0" y1="28" x2="57" y2="28"></line>
+          <line x1="446" y1="28" x2="640" y2="28"></line>
+        </g>
+        <!-- Oslo-Fredrikstad span, 4 px per km -->
+        <line
+          class="text-foreground"
+          stroke="currentColor"
+          stroke-width="1.25"
+          stroke-linecap="round"
+          stroke-dasharray="4 3"
+          x1="60"
+          y1="28"
+          x2="429.5"
+          y2="28"></line>
+        <!-- stations at true rail distances: Ski 24 km, Moss 60 km, Råde 77 km -->
+        <g class="text-muted-foreground" stroke="currentColor" stroke-width="1">
+          <line x1="156" y1="23.5" x2="156" y2="32.5"></line>
+          <line x1="300" y1="23.5" x2="300" y2="32.5"></line>
+          <line x1="368" y1="23.5" x2="368" y2="32.5"></line>
+        </g>
+        <!-- termini -->
+        <circle class="text-foreground" cx="60" cy="28" r="3" fill="currentColor"></circle>
+        <g class="text-accent">
+          <circle cx="436" cy="28" r="6.5" stroke="currentColor" stroke-width="1"></circle>
+          <circle cx="436" cy="28" r="3" fill="currentColor"></circle>
+        </g>
+        <!-- labels -->
+        <g class="font-mono">
+          <text class="text-foreground" fill="currentColor" font-size="11" x="60" y="48" text-anchor="middle">Oslo</text>
+          <text class="text-foreground" fill="currentColor" font-size="11" x="436" y="48" text-anchor="middle">Fredrikstad</text>
+          <text class="text-muted-foreground" fill="currentColor" font-size="9" x="156" y="48" text-anchor="middle">Ski</text>
+          <text class="text-muted-foreground" fill="currentColor" font-size="9" x="300" y="48" text-anchor="middle">Moss</text>
+          <text class="text-muted-foreground" fill="currentColor" font-size="9" x="368" y="48" text-anchor="middle">Råde</text>
+          <text class="text-muted-foreground" fill="currentColor" font-size="9" x="248" y="14" text-anchor="middle">94 km</text>
+        </g>
+      </svg>
+
       <div class="mt-20 border-t border-border pt-12">
         <h2 class="text-2xl font-semibold text-balance md:text-3xl">Vil du snakke med oss?</h2>
         <a href="/kontakt/" class={buttonVariants({ size: 'lg', className: 'mt-6' })}>Ta kontakt</a>
