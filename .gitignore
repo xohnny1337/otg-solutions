@@ -23,3 +23,6 @@ pnpm-debug.log*
 .netlify
 
 package-lock.json
+
+# astro generated cache
+.astro/
