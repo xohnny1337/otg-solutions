@@ -1,103 +1,128 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Container from '@/components/Container.astro';
-import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import HeroSection from '@/components/hero-section.astro';
-import Link from '@/components/Link.astro';
+import { buttonVariants } from '@/components/ui/button';
+
+const services = [
+  {
+    numeral: '01',
+    title: 'Mobilapper',
+    desc: 'Fra idé til ferdig app i App Store og Google Play, for kundene dine eller de ansatte.',
+  },
+  {
+    numeral: '02',
+    title: 'Webapper og verktøy',
+    desc: 'Fra enkle interne verktøy til større systemer. Vi bygger det som løser problemet ditt. Ikke mer, ikke mindre.',
+  },
+  {
+    numeral: '03',
+    title: 'Rådgivning',
+    desc: 'Usikker på teknologivalg? Vi hjelper deg å finne løsningen som passer, og sier fra hvis du ikke trenger å bygge noe.',
+  },
+];
+
+const values = [
+  {
+    title: 'Lokalt og tilgjengelig',
+    desc: 'Vi sitter i Oslo og Fredrikstad. Du får en utvikler du kan ringe, ikke et ticketsystem.',
+  },
+  {
+    title: 'Rett teknologi',
+    desc: 'Vi velger det som passer prosjektet, ikke det som er trendy. Det skal fungere om fem år også.',
+  },
+  {
+    title: 'Ingen overraskelser',
+    desc: 'Du vet hva vi gjør, hvorfor, og hva det koster.',
+  },
+  {
+    title: 'Vi leverer',
+    desc: 'Vi tar bare på oss det vi kan gjøre skikkelig. Heller et godt resultat enn store løfter.',
+  },
+];
 ---
 
 <Layout
-  title="OTG Solutions AS | IT-utvikling og konsulenttjenester i Fredrikstad og Oslo"
-  description="OTG Solutions utvikler programvare og apper for bedrifter i Fredrikstad og Oslo."
+  title="OTG Solutions | Apper og programvare i Oslo og Fredrikstad"
+  description="Mobilapper, webapper og interne verktøy for norske bedrifter. Vi sitter i Oslo og Fredrikstad, og du snakker direkte med utviklerne."
 >
-  <HeroSection
-    title="Vi bygger det bedriften din trenger"
-    description="Programvare og apper for bedrifter i Fredrikstad og Oslo."
-  >
-    <div class="flex gap-4 justify-center">
-      <Link href="/kontakt/" ariaLabel="Lenke til kontakt oss">
-        <Button variant="default" size="lg">Ta kontakt</Button>
-      </Link>
-      <Link href="/om-oss/" ariaLabel="Lenke til om oss">
-        <Button variant="outline" size="lg">Om oss</Button>
-      </Link>
-    </div>
-  </HeroSection>
-
-  <!-- Features Section -->
   <Container>
-    <div class="py-20">
-      <h2 class="text-3xl font-bold text-center mb-12">Hva vi gjør</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <Card>
-          <CardHeader>
-            <CardTitle>Programvare</CardTitle>
-            <CardDescription>Tilpasset din bedrift</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p class="text-gray-600">Webapper, interne verktøy og systemer som løser problemet ditt.</p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Apper</CardTitle>
-            <CardDescription>Mobil og web</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p class="text-gray-600">Fra idé til ferdig produkt, for kunder eller ansatte.</p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Rådgivning</CardTitle>
-            <CardDescription>Teknisk sparring</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p class="text-gray-600">Usikker på teknologivalg? Vi hjelper deg med å finne riktig løsning.</p>
-          </CardContent>
-        </Card>
+    <section class="pt-24 pb-20 md:pt-36 md:pb-28">
+      <p class="mb-6 font-mono text-sm text-muted-foreground">Oslo · Fredrikstad</p>
+      <h1 class="max-w-5xl text-5xl leading-tight font-semibold text-balance sm:text-6xl lg:text-7xl">
+        Vi bygger det bedriften din trenger<span class="text-accent">.</span>
+      </h1>
+      <p class="mt-6 max-w-prose text-lg text-muted-foreground text-pretty md:text-xl">
+        Mobilapper, webapper og interne verktøy for norske bedrifter. Du snakker direkte med utviklerne som bygger
+        løsningen.
+      </p>
+      <div class="mt-10 flex items-center gap-6">
+        <a href="/kontakt/" class={buttonVariants({ size: 'lg' })}>Ta kontakt</a>
+        <a
+          href="/om-oss/"
+          class="text-sm font-medium underline underline-offset-4 transition-colors hover:text-muted-foreground"
+        >
+          Om oss →
+        </a>
       </div>
-    </div>
+    </section>
   </Container>
 
-  <!-- Why Choose Us Section -->
-  <div class="bg-gray-50 py-20">
+  <div class="border-t border-border">
     <Container>
-      <h2 class="text-3xl font-bold text-center mb-12">Hvordan vi jobber</h2>
-      <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-        <div>
-          <h3 class="text-xl font-semibold mb-3">Lokalt og tilgjengelig</h3>
-          <p class="text-gray-600">Vi sitter i Fredrikstad. Du får en utvikler du kan ringe, ikke et ticketsystem.</p>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-3">Rett teknologi</h3>
-          <p class="text-gray-600">Vi velger det som passer prosjektet, ikke det som er trendy. Det skal fungere om fem år også.</p>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-3">Ingen overraskelser</h3>
-          <p class="text-gray-600">Du vet hva vi gjør, hvorfor, og hva det koster.</p>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-3">Vi leverer</h3>
-          <p class="text-gray-600">Vi tar på oss det vi kan gjøre skikkelig. Heller et godt resultat enn store løfter.</p>
-        </div>
-      </div>
+      <section class="py-20 md:py-28">
+        <p class="mb-10 font-mono text-sm text-muted-foreground">Hva vi gjør</p>
+        <ol class="border-y border-border divide-y divide-border">
+          {
+            services.map((service) => (
+              <li class="grid items-baseline gap-x-4 gap-y-2 py-8 md:grid-cols-12 md:py-10">
+                <span class="font-mono text-sm text-accent md:col-span-2">{service.numeral}</span>
+                <h2 class="text-2xl font-semibold text-balance md:col-span-4 md:text-3xl">{service.title}</h2>
+                <p class="max-w-prose text-base text-muted-foreground text-pretty md:col-span-6 md:text-lg">
+                  {service.desc}
+                </p>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
     </Container>
   </div>
 
-  <!-- CTA Section -->
-  <Container>
-    <div class="py-20 text-center">
-      <h2 class="text-3xl font-bold mb-6">Noe du vil snakke om?</h2>
-      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-        Send oss en melding, så tar vi en prat.
-      </p>
-      <Link href="/kontakt/" ariaLabel="Lenke til kontakt oss">
-        <Button variant="default" size="lg">Ta kontakt</Button>
-      </Link>
-    </div>
-  </Container>
+  <div class="border-t border-border">
+    <Container>
+      <section class="py-20 md:py-28">
+        <p class="mb-10 font-mono text-sm text-muted-foreground">Hvordan vi jobber</p>
+        <div class="grid gap-x-16 gap-y-12 md:grid-cols-2">
+          {
+            values.map((value) => (
+              <div>
+                <h2 class="mb-2 text-lg font-semibold text-balance">{value.title}</h2>
+                <p class="max-w-prose text-muted-foreground text-pretty">{value.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </Container>
+  </div>
+
+  <div class="border-t border-border">
+    <Container>
+      <section class="py-24 md:py-32">
+        <h2 class="max-w-3xl text-4xl leading-tight font-semibold text-balance md:text-5xl">Noe du vil snakke om?</h2>
+        <p class="mt-4 max-w-prose text-lg text-muted-foreground text-pretty">
+          Send oss en melding, så tar vi en prat. Helt uforpliktende.
+        </p>
+        <div class="mt-8 flex items-center gap-6">
+          <a href="/kontakt/" class={buttonVariants({ size: 'lg' })}>Ta kontakt</a>
+          <a
+            href="mailto:post@otg-solutions.no"
+            class="font-mono text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
+          >
+            post@otg-solutions.no
+          </a>
+        </div>
+      </section>
+    </Container>
+  </div>
 </Layout>

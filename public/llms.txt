@@ -1,0 +1,18 @@
+# OTG Solutions AS
+
+> Lite norsk utviklingsselskap i Oslo og Fredrikstad. Bygger mobilapper, webapper og interne verktøy for norske bedrifter, og gir teknisk rådgivning. Kundene snakker direkte med utviklerne som bygger løsningen.
+
+Fakta:
+
+- Selskap: OTG Solutions AS, aksjeselskap stiftet 2020, org.nr. 924 974 168
+- Steder: Oslo og Fredrikstad, Norge
+- Tjenester: mobilapputvikling (iOS og Android), webapper og interne verktøy, teknisk rådgivning
+- Kontakt: post@otg-solutions.no
+- Språk: norsk (bokmål) og engelsk
+- LinkedIn: https://www.linkedin.com/company/otg-solutions-as/
+
+## Sider
+
+- [Hjem](https://otg-solutions.no/): Hva OTG Solutions gjør og hvordan de jobber
+- [Om oss](https://otg-solutions.no/om-oss/): Om utviklingsmiljøet
+- [Kontakt](https://otg-solutions.no/kontakt/): E-post og selskapsdetaljer

@@ -4,24 +4,55 @@ import Container from '@/components/Container.astro';
 ---
 
 <Layout
-  title="Kontakt OTG Solutions | IT-utvikling Fredrikstad og Oslo"
-  description="Ta kontakt med OTG Solutions for programvare og apputvikling i Fredrikstad og Oslo."
+  title="Kontakt OTG Solutions | Oslo og Fredrikstad"
+  description="Ta kontakt på post@otg-solutions.no. Vi svarer raskt, og det er en utvikler du snakker med, ikke en salgsavdeling. Oslo og Fredrikstad."
+  pageType="contact"
+  breadcrumbName="Kontakt"
 >
   <Container>
-    <div class="py-24 max-w-3xl mx-auto">
-      <div class="text-center space-y-6">
-        <h1 class="text-4xl font-bold">Kontakt oss</h1>
-        <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Send oss en epost, så svarer vi så fort vi kan.
-        </p>
+    <section class="pt-20 pb-24 md:pt-28">
+      <h1 class="mb-6 text-5xl leading-tight font-semibold text-balance md:text-6xl">Kontakt</h1>
+      <p class="max-w-prose text-lg text-muted-foreground text-pretty md:text-xl">
+        Send en e-post, så hører du raskt fra oss. Du snakker med en utvikler, ikke en salgsavdeling. Vi sitter i Oslo
+        og Fredrikstad, og møtes gjerne over en kaffe.
+      </p>
 
-        <div class="mt-12 space-y-4">
-          <h2 class="text-2xl font-semibold">E-post</h2>
-          <a href="mailto:post@otg-solutions.no" class="inline-flex items-center text-lg hover:underline text-primary">
-            post@otg-solutions.no
-          </a>
+      <a
+        href="mailto:post@otg-solutions.no"
+        class="mt-14 inline-block text-2xl font-semibold break-all underline decoration-accent decoration-1 underline-offset-8 transition-colors hover:text-accent sm:text-4xl sm:break-normal md:text-5xl"
+      >
+        post@otg-solutions.no
+      </a>
+
+      <dl class="mt-20 border-y border-border divide-y divide-border">
+        <div class="grid grid-cols-[7rem_1fr] items-baseline py-4 md:grid-cols-[9rem_1fr]">
+          <dt class="font-mono text-sm text-muted-foreground">E-post</dt>
+          <dd class="text-base">
+            <a href="mailto:post@otg-solutions.no" class="hover:underline">post@otg-solutions.no</a>
+          </dd>
         </div>
-      </div>
-    </div>
+        <div class="grid grid-cols-[7rem_1fr] items-baseline py-4 md:grid-cols-[9rem_1fr]">
+          <dt class="font-mono text-sm text-muted-foreground">Hvor</dt>
+          <dd class="text-base">Oslo og Fredrikstad</dd>
+        </div>
+        <div class="grid grid-cols-[7rem_1fr] items-baseline py-4 md:grid-cols-[9rem_1fr]">
+          <dt class="font-mono text-sm text-muted-foreground">Org.nr.</dt>
+          <dd class="text-base tabular-nums">924 974 168</dd>
+        </div>
+        <div class="grid grid-cols-[7rem_1fr] items-baseline py-4 md:grid-cols-[9rem_1fr]">
+          <dt class="font-mono text-sm text-muted-foreground">LinkedIn</dt>
+          <dd class="text-base">
+            <a
+              href="https://www.linkedin.com/company/otg-solutions-as/"
+              target="_blank"
+              rel="noopener"
+              class="hover:underline"
+            >
+              OTG Solutions AS ↗
+            </a>
+          </dd>
+        </div>
+      </dl>
+    </section>
   </Container>
 </Layout>

@@ -6,10 +6,116 @@ import Footer from '@/components/Footer.astro';
 interface Props {
   title?: string;
   description: string;
+  pageType?: 'website' | 'about' | 'contact';
+  breadcrumbName?: string;
 }
 
-const { title = 'OTG Solutions AS | IT-utvikling og konsulenttjenester i Fredrikstad og Oslo', description } = Astro.props;
+const {
+  title = 'OTG Solutions | Apper og programvare i Oslo og Fredrikstad',
+  description,
+  pageType = 'website',
+  breadcrumbName,
+} = Astro.props;
+
+const site = 'https://otg-solutions.no';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og.png', Astro.site);
+
+const orgId = `${site}/#organization`;
+const websiteId = `${site}/#website`;
+
+const organization = {
+  '@type': ['Organization', 'ProfessionalService'],
+  '@id': orgId,
+  name: 'OTG Solutions',
+  legalName: 'OTG Solutions AS',
+  url: `${site}/`,
+  logo: { '@type': 'ImageObject', url: `${site}/logo.png`, width: 512, height: 512 },
+  image: ogImage.href,
+  email: 'post@otg-solutions.no',
+  foundingDate: '2020-03-13',
+  taxID: '924974168',
+  vatID: 'NO924974168MVA',
+  slogan: 'Vi bygger det bedriften din trenger.',
+  description:
+    'OTG Solutions AS er et lite utviklingsmiljø i Oslo og Fredrikstad som bygger mobilapper, webapper og interne verktøy for norske bedrifter.',
+  address: [
+    { '@type': 'PostalAddress', addressLocality: 'Oslo', addressCountry: 'NO' },
+    { '@type': 'PostalAddress', addressLocality: 'Fredrikstad', addressCountry: 'NO' },
+  ],
+  areaServed: [
+    { '@type': 'City', name: 'Oslo' },
+    { '@type': 'City', name: 'Fredrikstad' },
+    { '@type': 'Country', name: 'Norge' },
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    email: 'post@otg-solutions.no',
+    availableLanguage: ['nb', 'en'],
+  },
+  knowsAbout: ['Mobilapputvikling', 'Webutvikling', 'Programvareutvikling', 'Teknisk rådgivning'],
+  makesOffer: [
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Mobilapputvikling',
+        description: 'Mobilapper for iOS og Android, fra idé til ferdig app i App Store og Google Play.',
+      },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Webapper og interne verktøy',
+        description: 'Webapper, interne verktøy og systemer som løser konkrete problemer for bedriften.',
+      },
+    },
+    {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Teknisk rådgivning',
+        description: 'Hjelp med teknologivalg og arkitektur, med ærlige råd om hva som faktisk trengs.',
+      },
+    },
+  ],
+  sameAs: ['https://www.linkedin.com/company/otg-solutions-as/'],
+};
+
+const website = {
+  '@type': 'WebSite',
+  '@id': websiteId,
+  url: `${site}/`,
+  name: 'OTG Solutions',
+  inLanguage: 'nb',
+  publisher: { '@id': orgId },
+};
+
+const webpageTypes = { website: 'WebPage', about: 'AboutPage', contact: 'ContactPage' };
+const webpage: Record<string, unknown> = {
+  '@type': webpageTypes[pageType],
+  '@id': `${canonicalURL.href}#webpage`,
+  url: canonicalURL.href,
+  name: title,
+  description,
+  inLanguage: 'nb',
+  isPartOf: { '@id': websiteId },
+  about: { '@id': orgId },
+};
+
+if (breadcrumbName) {
+  webpage.breadcrumb = {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Hjem', item: `${site}/` },
+      { '@type': 'ListItem', position: 2, name: breadcrumbName, item: canonicalURL.href },
+    ],
+  };
+}
+
+const schema = { '@context': 'https://schema.org', '@graph': [organization, website, webpage] };
 ---
 
 <!doctype html>
@@ -21,32 +127,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="theme-color" content="#F8F6F1" />
     <link rel="canonical" href={canonicalURL.href} />
+    <meta property="og:site_name" content="OTG Solutions" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL.href} />
     <meta property="og:locale" content="nb_NO" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage.href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="OTG Solutions. Mobilapper, webapper og interne verktøy for norske bedrifter. Oslo og Fredrikstad." />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "OTG Solutions AS",
-      "url": "https://otg-solutions.no",
-      "email": "post@otg-solutions.no",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Fredrikstad",
-        "addressCountry": "NO"
-      },
-      "sameAs": ["https://www.linkedin.com/company/otg-solutions-as/"]
-    })} />
+    <meta name="twitter:image" content={ogImage.href} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="flex min-h-dvh flex-col">
     <Header />
-    <main class="flex-grow">
+    <main class="flex-1">
       <slot />
     </main>
     <Footer />

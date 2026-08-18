@@ -1,38 +1,39 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Container from '@/components/Container.astro';
-import { Button } from '@/components/ui/button';
-import Link from '@/components/Link.astro';
+import { buttonVariants } from '@/components/ui/button';
 ---
 
 <Layout
-  title="Om OTG Solutions | Utviklere i Fredrikstad"
-  description="OTG Solutions bygger programvare og apper for bedrifter i Fredrikstad og Oslo."
+  title="Om OTG Solutions | Utviklere i Oslo og Fredrikstad"
+  description="OTG Solutions er et lite utviklingsmiljø i Oslo og Fredrikstad. Du snakker direkte med utviklerne, ingen mellomledd og ingen store løfter."
+  pageType="about"
+  breadcrumbName="Om oss"
 >
   <Container>
-    <div class="py-24 max-w-4xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-center">Om oss</h1>
+    <section class="pt-20 pb-24 md:pt-28">
+      <h1 class="mb-12 text-5xl leading-tight font-semibold text-balance md:text-6xl">Om oss</h1>
 
-      <div class="space-y-6 text-lg text-gray-600 mb-16">
-        <p>
-          Vi er utviklere fra Fredrikstad som bygger programvare og apper for bedrifter. Enkelt og greit.
+      <div class="max-w-prose space-y-6">
+        <p class="text-xl text-pretty md:text-2xl">
+          OTG Solutions AS er et lite utviklingsmiljø i Oslo og Fredrikstad som bygger alt fra mobilapper til webapper
+          og interne verktøy for norske bedrifter. Enkelt og greit.
         </p>
-
-        <p>
-          Hos oss snakker du direkte med folkene som bygger løsningen. Ingen mellomledd, ingen konsulenter som må sette seg inn i alt fra scratch.
+        <p class="text-lg text-muted-foreground text-pretty">
+          Hos oss snakker du direkte med utviklerne som bygger løsningen din. Ingen mellomledd, ingen som må settes inn
+          i saken. Det gjør ting raskere og misforståelsene færre.
         </p>
-
-        <p>
-          Vi leverer ikke før det holder mål.
+        <p class="text-lg text-muted-foreground text-pretty">
+          Vi er små med vilje. Det gir korte beslutningsveier og ærlige svar. Vi tar bare på oss det vi kan gjøre
+          skikkelig.
         </p>
+        <p class="text-lg font-medium text-pretty">Vi leverer ikke før det holder mål.</p>
       </div>
 
-      <div class="text-center">
-        <h2 class="text-2xl font-semibold mb-6">Vil du snakke med oss?</h2>
-        <Link href="/kontakt/" ariaLabel="Lenke til kontakt oss">
-          <Button variant="default" size="lg">Ta kontakt</Button>
-        </Link>
+      <div class="mt-20 border-t border-border pt-12">
+        <h2 class="text-2xl font-semibold text-balance md:text-3xl">Vil du snakke med oss?</h2>
+        <a href="/kontakt/" class={buttonVariants({ size: 'lg', className: 'mt-6' })}>Ta kontakt</a>
       </div>
-    </div>
+    </section>
   </Container>
 </Layout>
